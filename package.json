@@ -1,0 +1,17 @@
+{
+  "name": "recetarios",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ia_recetas.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "dependencies": {
+    "@google/genai": "^2.15.0",
+    "@supabase/supabase-js": "^2.112.0",
+    "axios": "^1.19.0",
+    "dotenv": "^17.4.2"
+  }
+}

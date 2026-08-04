@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iniciar sesión</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+
+<style>
+.oculto{
+    display:none;
+}
+body{
+    font-family:Arial,sans-serif;
+    max-width:350px;
+    margin:50px auto;
+    padding:20px;
+}
+input,button{
+    width:100%;
+    padding:12px;
+    margin:8px 0;
+    box-sizing:border-box;
+}
+button{
+    cursor:pointer;
+}
+</style>
+
+</head>
+<body>
+
+<h2>Administrador</h2>
+
+<p id="mensaje" class="oculto">
+✅ Ya has iniciado sesión.
+</p>
+
+<input
+type="email"
+id="email"
+placeholder="Correo">
+
+<input
+type="password"
+id="password"
+placeholder="Contraseña">
+
+<button id="entrar">
+Entrar
+</button>
+
+<button id="salir">
+Cerrar sesión
+</button>
+
+<script>
+
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const entrar = document.getElementById("entrar");
+const salir = document.getElementById("salir");
+const mensaje = document.getElementById("mensaje");
+
+async function verificar(){
+
+    const { data } = await db.auth.getSession();
+
+    if(data.session){
+
+        mensaje.classList.remove("oculto");
+
+        email.classList.add("oculto");
+        password.classList.add("oculto");
+        entrar.classList.add("oculto");
+
+        salir.classList.remove("oculto");
+
+    }else{
+
+        mensaje.classList.add("oculto");
+
+        email.classList.remove("oculto");
+        password.classList.remove("oculto");
+        entrar.classList.remove("oculto");
+
+        salir.classList.add("oculto");
+
+    }
+
+}
+
+entrar.onclick = async ()=>{
+
+    const { error } = await db.auth.signInWithPassword({
+
+        email: email.value,
+        password: password.value
+
+    });
+
+    if(error){
+
+        alert(error.message);
+        return;
+
+    }
+
+    location.href="index.html";
+
+};
+
+salir.onclick = async ()=>{
+
+    await db.auth.signOut();
+
+    location.href = "index.html";
+
+};
+
+verificar();
+
+</script>
+</body>
+</html>

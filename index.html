@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recetarios</title>
+
+<link rel="stylesheet" href="estilo.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<button id="btnLogin">🔐 Iniciar sesión</button>
+
+<button id="btnSalir" style="display:none;">
+🚪 Cerrar sesión
+</button>
+
+<header>
+
+<div class="logo">
+<span>Recetarios</span>
+</div>
+
+<div class="busqueda">
+
+<input
+type="text"
+id="buscar"
+placeholder="Buscar recetas...">
+
+<button id="btnBuscar">🔍</button>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<h1>Mis recetas favoritas</h1>
+
+<button id="btnNueva">
+➕ Nueva receta
+</button>
+
+</section>
+
+<section id="formulario" class="oculto">
+
+<h2>Nueva receta</h2>
+
+<input  
+type="text"  
+id="nombre"  
+placeholder="Nombre de la receta">
+
+<input  
+type="text"  
+id="categoria"  
+placeholder="Categoría">
+
+<input  
+type="file"  
+id="imagen"  
+accept="image/*">
+
+<textarea  
+id="ingredientes"  
+placeholder="Ingredientes">
+</textarea>
+
+<textarea  
+id="preparacion"  
+placeholder="Preparación">
+</textarea>
+
+<div class="acciones">
+
+<button id="guardar">
+💾 Guardar
+</button>
+
+<button id="cancelar">
+❌ Cancelar
+</button>
+
+</div>
+
+
+</section>
+
+<section>
+
+
+<div id="listaRecetas" class="grid">
+
+</div>
+
+</section>  
+
+
+
+
+<footer class="footer">
+© 2026 Matías Andino. Todos los derechos reservados.
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="supabase.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
