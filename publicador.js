@@ -53,7 +53,7 @@ ${receta.ingredientes}
 
 ${receta.preparacion}
 
-📖 Más recetas en Recetarios IA`;
+📖 Más recetas en https://andino810-stack.github.io/recetarios-ia/`;
 
     try {
 
